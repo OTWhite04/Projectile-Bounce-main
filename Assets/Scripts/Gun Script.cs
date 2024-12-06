@@ -8,7 +8,10 @@ public class GunScript : MonoBehaviour
 
     [SerializeField] Bullet bulletprefab;
     [SerializeField] Transform bulletSpawnPos;
+    
+    public GameObject LoseTextObject;
 
+    public int BulletCount;
 
     private Camera cam;
 
@@ -35,6 +38,19 @@ public class GunScript : MonoBehaviour
             Vector2 direction = MousePos - (Vector2)transform.position;
             Bullet bullet = Instantiate(bulletprefab, bulletSpawnPos.position, Quaternion.identity);
             bullet.Shoot(direction.normalized);
+
+            //Adds one to the bullet count.
+            BulletCount++;
+
+            //If statement for Bullet count equaling five.
+            if (BulletCount == 5)
+            {
+                //Lets player know they lost.
+                LoseTextObject.SetActive(true);
+
+
+            }
+
         }
     }
 }

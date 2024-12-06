@@ -27,6 +27,7 @@ public class LevelEnd : MonoBehaviour
             
         }
         
+        //Gets tag for the Target and sets the iwn tect to true after hitting it.
         if(other.gameObject.CompareTag("Target"))
         {
             WinTextObject.SetActive(true);
