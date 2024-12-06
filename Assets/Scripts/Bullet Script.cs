@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed = 30f;
     //Lives for the Bullet that will destroy it.
     [SerializeField] int life = 8;
-
+    //Variable for counting reflects of the bullet.
     public int BulletCount;
    
     //Vector 2 direction for the direction of the Bullet.
@@ -26,13 +26,7 @@ public class Bullet : MonoBehaviour
         this.direction = direction;
         rb.velocity = this.direction * speed;
 
-        //Counts another Bullet every time one is fired.
-        BulletCount++;
-
-        if (BulletCount == 5)
-        {
-            LoseTextObject.SetActive(true);
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -44,6 +38,17 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
             return;
+        }
+
+        //Counts another Bullet every time one is fired.
+        BulletCount++;
+        //If statement for Bullet count equaling five.
+        if (BulletCount == 8)
+        {
+            //Lets player know they lost.
+            LoseTextObject.SetActive(true);
+
+
         }
 
         var firstContact = collision.contacts[0];
