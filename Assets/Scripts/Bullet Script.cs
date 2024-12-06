@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    
+
     //public GameObject particles;
 
+    public GameObject LoseTextObject;
     //Rigidbody for the bullet.
     [SerializeField] Rigidbody2D rb;
     //Float speed for the bullet.
     [SerializeField] float speed = 30f;
     //Lives for the Bullet that will destroy it.
     [SerializeField] int life = 8;
+
+    public int BulletCount;
    
     //Vector 2 direction for the direction of the Bullet.
     private Vector2 direction;
@@ -22,6 +25,14 @@ public class Bullet : MonoBehaviour
     {
         this.direction = direction;
         rb.velocity = this.direction * speed;
+
+        //Counts another Bullet every time one is fired.
+        BulletCount++;
+
+        if (BulletCount == 5)
+        {
+            LoseTextObject.SetActive(true);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

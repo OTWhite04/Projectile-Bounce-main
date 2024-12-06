@@ -69,11 +69,15 @@ public class PlayerScript : MonoBehaviour
         
     }
 
+    //Method for drawing a Gizmo.
     private void OnDrawGizmos()
     {
+        //If statement for checking if the player can jump.
         if(GroundChecker != null)
         {
+            //Makes gizmo color red.
             Gizmos.color = Color.red;
+            //Draws a red circle for checking when the player casn jump again.
             Gizmos.DrawWireSphere(GroundChecker.position, checkRadius);
         }
     }
