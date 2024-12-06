@@ -43,7 +43,7 @@ public class GunScript : MonoBehaviour
             BulletCount++;
 
             //If statement for Bullet count equaling five.
-            if (BulletCount == 5)
+            if (BulletCount == 3)
             {
                 //Lets player know they lost.
                 LoseTextObject.SetActive(true);
