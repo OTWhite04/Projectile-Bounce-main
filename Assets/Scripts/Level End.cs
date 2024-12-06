@@ -5,6 +5,7 @@ using TMPro;
 
 public class LevelEnd : MonoBehaviour
 {
+    public GameObject WinTextObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,12 @@ public class LevelEnd : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             other.gameObject.SetActive(false);
-
+            
+        }
+        
+        if(other.gameObject.CompareTag("Target"))
+        {
+            WinTextObject.SetActive(true);
         }
     }
 

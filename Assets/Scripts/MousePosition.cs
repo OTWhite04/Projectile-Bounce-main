@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MousePosition : MonoBehaviour
 {
+
     Camera cam;
 
     Vector2 MousePos
@@ -14,7 +15,8 @@ public class MousePosition : MonoBehaviour
             return MousePos;
         }
     }
-
+    
+    //Awake method.
     private void Awake()
     {
         cam = Camera.main;
