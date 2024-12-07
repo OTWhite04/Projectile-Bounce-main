@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-    //public GameObject particles;
-
     
+
+
     //Rigidbody for the bullet.
     [SerializeField] Rigidbody2D rb;
     //Float speed for the bullet.
@@ -25,7 +24,6 @@ public class Bullet : MonoBehaviour
         this.direction = direction;
         rb.velocity = this.direction * speed;
 
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -46,11 +44,7 @@ public class Bullet : MonoBehaviour
         Shoot(newVelocity.normalized);
     }
 
-    
 
-    //public void OnCollisionEnter2D(Collision2D other)
-    //{
-    //   GameObject burst = Instantiate(particles,this.transform.position);
-        
-    //}
+
+   
 }
